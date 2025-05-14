@@ -15,8 +15,8 @@ Based on my previous configs I have created a minimal OCIO config with different
 * One may easily add several colorspaces or displays for HDR output if needed (such as "p3_d65_pq")
 
 # Specificities
-* I have added more colorspaces than my previous configs if you want to work in a wide gamut such as P3 or BT.2020
-* I recommend image formations that do not break visual cognition such as OpenDRT 1.0.0, JP High Contrast and JP2499
+* I have added several colorspaces if you want to work in a wide gamut such as P3 or BT.2020
+* I recommend image formations that do not break visual cognition such as OpenDRT 1.0.0
 * The ACES 1.0 and 2.0 Output Transforms have only be added for comparison
 
 # Looks
