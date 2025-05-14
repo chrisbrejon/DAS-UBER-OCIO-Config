@@ -1,0 +1,289 @@
+ocio_profile_version: 1
+search_path: looks:transforms
+strictparsing: true
+luma: [0.2126, 0.7152, 0.0722]
+
+description: DAS ÜBER CONFIG for OCIO v1.2
+
+roles:
+  color_picking: lin_rec709
+  color_timing: tlog_egamut
+  compositing_log: tlog_egamut
+  data: non-colour data
+  default: lin_rec709
+  matte_paint: cineonlog_rec709
+  rendering: lin_rec709
+  scene_linear: lin_rec709
+  texture_paint: lin_rec709
+  mari_monitor: rec709_display
+  mari_scalar_monitor: rec709_display
+  mari_color_picker: rec709_display
+  mari_working: lin_rec709
+  mari_int8: srgb_encoding
+  mari_int16: srgb_encoding
+  mari_int_scalar: non-colour data
+  mari_scalar8: non-colour data
+  mari_float: lin_rec709
+  reference: lin_xyz
+  srgb_linear: lin_rec709 
+  substance_3d_painter_standard_srgb: srgb_encoding
+  substance_3d_painter_bitmap_import_8bit: srgb_encoding
+  substance_3d_painter_bitmap_import_16bit: srgb_encoding
+  substance_3d_painter_bitmap_import_floating: lin_rec709
+  substance_3d_painter_substance_material: srgb_encoding
+  substance_3d_painter_bitmap_export_8bit: srgb_encoding
+  substance_3d_painter_bitmap_export_16bit: srgb_encoding
+  substance_3d_painter_bitmap_export_floating: lin_rec709 
+
+displays:
+  Rec1886 100 nits Video dim:    
+    - !<View> {name: OpenDRT 1.0, colorspace: openDRT 1.0 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: ACES 1.0, colorspace: ACES 1.0 - Rec.709 - 2.4 Gamma}    
+    - !<View> {name: ACES 2.0, colorspace: ACES 2.0 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: JP2499, colorspace: JP2499 - Rec.709 - 2.4 Gamma}    
+    - !<View> {name: RED IPP2, colorspace: RED IPP2 - Rec.709 - 2.4 Gamma}
+    - !<View> {name: RED IPP2 Look, colorspace: RED IPP2 - Rec.709 - 2.4 Gamma, looks: Red Look}       
+    - !<View> {name: Sony Venice High Contrast, colorspace: Sony Venice High Contrast - Rec.709 - 2.4 Gamma}   
+    - !<View> {name: Display Encoding, colorspace: rec709_display}               
+    - !<View> {name: Log, colorspace: cineonlog_rec709}
+    - !<View> {name: None, colorspace: non-colour data}
+
+active_displays: [Rec1886 100 nits Video dim]
+active_views: [OpenDRT 1.0, ACES 1.0, ACES 2.0, JP2499, Red IPP2, Red IPP2 Look, Sony Venice High Contrast, Display Encoding, Log, None]
+
+##################################### SCENE-REFERRED ##############################################
+
+colorspaces:
+  - !<ColorSpace>
+    name: lin_rec709
+    family: SceneReferred    
+    bitdepth: 32f
+    description: Linear - Rec.709 - D65
+    to_reference: !<MatrixTransform> {matrix: [0.4356149258, 0.3971260011, 0.1672590731, 0.0000000000, 0.2208442806, 0.7121963865, 0.0669593329, 0.0000000000, 0.0172546878, 0.1086489393, 0.8740963729, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000]}
+    allocation: lg2
+    allocationvars: [-10, 7, 0.0056065625]
+
+  - !<ColorSpace>
+    name: lin_p3
+    family: SceneReferred    
+    bitdepth: 32f
+    description: Linear - P3 - D65
+    to_reference: !<MatrixTransform> {matrix: [0.5136157546, 0.3026880210, 0.1836962244, 0.0000000000, 0.2392533032, 0.6872070291, 0.0735396677, 0.0000000000, -0.0005985984, 0.0406016281, 0.9599969704, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000]}
+    allocation: lg2
+    allocationvars: [-10, 7, 0.0056065625]
+
+  - !<ColorSpace>
+    name: lin_rec2020
+    family: SceneReferred    
+    bitdepth: 32f
+    description: Linear - Rec.2020 - D65
+    to_reference: !<MatrixTransform> {matrix: [0.6708365530, 0.1770960214, 0.1520674256, 0.0000000000, 0.2767901798, 0.6703353325, 0.0528744876, 0.0000000000, -0.0007465395, 0.0250331578, 0.9757133817, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000]}
+    allocation: lg2
+    allocationvars: [-10, 7, 0.0056065625]
+
+  - !<ColorSpace>
+    name: lin_xyz
+    family: SceneReferred    
+    bitdepth: 32f
+    description: CIE - Linear - XYZ - E
+    allocation: lg2
+    allocationvars: [-10, 7, 0.0056065625]
+
+##################################### ACES ##############################################    
+
+  - !<ColorSpace>
+    name: aces
+    family: ACES  
+    bitdepth: 32f
+    description: ACES 2065-1 - Linear - AP0 - ACES White Point (~D60)
+    to_reference: !<MatrixTransform> {matrix: [0.9865190867, 0.0239710338, -0.0104901205, 0.0000000000, 0.3596892056, 0.7145861558, -0.0742753614, 0.0000000000, -0.0003859199, 0.0000294397, 1.0003564803, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000]}
+    allocation: lg2
+    allocationvars: [-10, 7, 0.0056065625]
+
+  - !<ColorSpace>
+    name: acescg
+    family: ACES 
+    bitdepth: 32f
+    description: ACEScg - Linear - AP1 - ACES White Point (~D60)
+    to_reference: !<MatrixTransform> {matrix: [0.6872086492, 0.1593471996, 0.1534441512, 0.0000000000, 0.2825666760, 0.6646107144, 0.0528226096, 0.0000000000, -0.0057949226, 0.0039976629, 1.0017972596, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000]}
+    allocation: lg2
+    allocationvars: [-10, 7, 0.0056065625]
+
+##################################### LOG ENCODINGS ##############################################
+  - !<ColorSpace>
+    name: cineonlog_rec709
+    family: Log Encodings   
+    bitdepth: 32f    
+    description: Cineon Log - Rec.709 - D65
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: CineonLog_2_Linear.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [0.4356149258, 0.3971260011, 0.1672590731, 0.0000000000, 0.2208442806, 0.7121963865, 0.0669593329, 0.0000000000, 0.0172546878, 0.1086489393, 0.8740963729, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000]}
+
+  - !<ColorSpace>
+    name: cineonlog_p3
+    family: Log Encodings   
+    bitdepth: 32f    
+    description: Cineon Log - P3 - D65
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: CineonLog_2_Linear.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [0.5136157546, 0.3026880210, 0.1836962244, 0.0000000000, 0.2392533032, 0.6872070291, 0.0735396677, 0.0000000000, -0.0005985984, 0.0406016281, 0.9599969704, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000]}
+
+  - !<ColorSpace>
+    name: log3g10_redwg
+    family: Log Encodings     
+    bitdepth: 32f
+    description: RED - Log3G10 - REDWideGamutRGB - D65
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: REDLog3G10_to_linear.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [0.7756064921, 0.1141053447, 0.1102871966, 0.0000000000, 0.3040188437, 0.8339318914, -0.1379507646, 0.0000000000, -0.0741363063, -0.3203840229, 1.3945205592, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000]}
+
+  - !<ColorSpace>
+    name: slog3_sgamut3cine
+    family: Log Encodings      
+    bitdepth: 32f    
+    description: Sony - S-Log3 - S-Gamut3.Cine - D65
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: SLog3_2_Linear.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [0.6303970744, 0.2950394088, 0.0745635169, 0.0000000000, 0.2291885042, 0.8774472275, -0.1066357318, 0.0000000000, -0.0301645000, -0.0265150760, 1.0566795760, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000]}
+
+  - !<ColorSpace>
+    name: tlog_egamut
+    family: Log Encodings     
+    bitdepth: 32f    
+    description: FilmLight - T-Log - E-Gamut - D65
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: TLog_2_Linear.spi1d, interpolation: linear}
+        - !<MatrixTransform> {matrix: [0.7449525870, 0.2054932816, 0.0495541314, 0.0000000000, 0.2969309037, 0.8116598378, -0.1085907415, 0.0000000000, -0.0962748588, -0.0680059158, 1.1642807746, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000]}
+
+############################################## UTILITY ##############################################         
+
+  - !<ColorSpace>
+    name: non-colour data
+    family: Utility
+    bitdepth: 32f
+    description: No operation
+    isdata: true
+    allocation: uniform
+    allocationvars: [0, 1]             
+
+  - !<ColorSpace>
+    name: srgb_encoding
+    family: Utility
+    bitdepth: 32f
+    description: sRGB Piecewise Function - Rec.709 - D65
+    from_reference: !<GroupTransform>
+      children:
+        - !<MatrixTransform> {matrix: [0.4356149258, 0.3971260011, 0.1672590731, 0.0000000000, 0.2208442806, 0.7121963865, 0.0669593329, 0.0000000000, 0.0172546878, 0.1086489393, 0.8740963729, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000], direction: inverse}
+        - !<FileTransform> {src: linear_to_sRGB.spi1d, interpolation: linear}
+    allocation: uniform
+    allocationvars: [0, 1]        
+
+  - !<ColorSpace>
+    name: rec709_display
+    family: Utility
+    bitdepth: 32f
+    description: Gamma 2.4 - Rec.709 - D65
+    from_reference: !<GroupTransform>
+      children:
+        - !<MatrixTransform> {matrix: [0.4356149258, 0.3971260011, 0.1672590731, 0.0000000000, 0.2208442806, 0.7121963865, 0.0669593329, 0.0000000000, 0.0172546878, 0.1086489393, 0.8740963729, 0.0000000000, 0.0000000000, 0.0000000000, 0.0000000000, 1.0000000000], direction: inverse}
+        - !<FileTransform> {src: linear_to_rec1886.spi1d, interpolation: linear}
+    allocation: uniform
+    allocationvars: [0, 1]        
+
+##################################### DISPLAY-REFERRED ##############################################
+  - !<ColorSpace>
+    name: openDRT 1.0 - Rec.709 - 2.4 Gamma
+    family: DisplayReferred
+    bitdepth: 32f
+    description: State-of-the-art Color Management Workflow    
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: tlog_egamut}
+        - !<FileTransform> {src: OpenDRT_Default_v1.0.0_tlog-egamut_to_Rec1886.cube, interpolation: tetrahedral}
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: OpenDRT_Default_v1.0.0_tlog-egamut_to_Rec1886_inverse.cube, interpolation: tetrahedral}
+        - !<ColorSpaceTransform> {src: tlog_egamut, dst: lin_xyz}
+
+  - !<ColorSpace>
+    name: ACES 1.0 - Rec.709 - 2.4 Gamma
+    family: DisplayReferred
+    bitdepth: 32f
+    description: Color Encoding System developed by the Academy of Motion Picture Arts and Sciences (AMPAS)
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: tlog_egamut}
+        - !<FileTransform> {src: ACES1__tlog-egamut_to_rec1886_cube65.cube, interpolation: tetrahedral}
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: ACES1__tlog-egamut_to_rec1886_cube65_inverse.cube, interpolation: tetrahedral}
+        - !<ColorSpaceTransform> {src: tlog_egamut, dst: lin_xyz}        
+
+  - !<ColorSpace>
+    name: ACES 2.0 - Rec.709 - 2.4 Gamma
+    family: DisplayReferred
+    bitdepth: 32f
+    description: Color Encoding System developed by the Academy of Motion Picture Arts and Sciences (AMPAS)
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: tlog_egamut}
+        - !<FileTransform> {src: ACES2__tlog-egamut_to_rec1886_cube65.cube, interpolation: tetrahedral}
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: ACES2__tlog-egamut_to_rec1886_cube65_inverse.cube, interpolation: tetrahedral}
+        - !<ColorSpaceTransform> {src: tlog_egamut, dst: lin_xyz}
+
+  - !<ColorSpace>
+    name: JP2499 - Rec.709 - 2.4 Gamma
+    family: DisplayReferred
+    bitdepth: 32f
+    description: Juan-Pablo Zambrano
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: tlog_egamut}
+        - !<FileTransform> {src: jp2499_tlog-egamut_to_rec1886_cube65.cube, interpolation: tetrahedral}
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: jp2499_tlog-egamut_to_rec1886_cube65_inverse.cube, interpolation: tetrahedral}
+        - !<ColorSpaceTransform> {src: tlog_egamut, dst: lin_xyz}  
+
+  - !<ColorSpace>
+    name: RED IPP2 - Rec.709 - 2.4 Gamma
+    family: DisplayReferred
+    bitdepth: 32f
+    description: RED Image Processing Pipeline 
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: log3g10_redwg}
+        - !<FileTransform> {src: RWG_Log3G10_to_REC709_BT1886_with_MEDIUM_CONTRAST_and_R_2_Medium_size_64_v1.13.cub, interpolation: tetrahedral}
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: RWG_Log3G10_to_REC709_BT1886_with_MEDIUM_CONTRAST_and_R_2_Medium_size_64_v1.13_inv.cub, interpolation: tetrahedral}
+        - !<ColorSpaceTransform> {src: log3g10_redwg, dst: lin_xyz}    
+
+  - !<ColorSpace>
+    name: Sony Venice High Contrast - Rec.709 - 2.4 Gamma
+    family: DisplayReferred
+    bitdepth: 32f
+    description: Designed for the Sony Venice 2 motion picture camera workflow by legendary color scientists Josh Pines and Chris Kutcka (Picture Shop)
+    from_reference: !<GroupTransform>
+      children:
+        - !<ColorSpaceTransform> {src: lin_xyz, dst: slog3_sgamut3cine}
+        - !<FileTransform> {src: sv2_look_7525_r709_g24.cube, interpolation: tetrahedral}
+    to_reference: !<GroupTransform>
+      children:
+        - !<FileTransform> {src: sv2_look_7525_r709_g24_inverse.cube, interpolation: tetrahedral}
+        - !<ColorSpaceTransform> {src: slog3_sgamut3cine, dst: lin_xyz}     
+
+##################################### LOOKS ##############################################
+looks:
+  - !<Look>
+    name: Red Look
+    process_space: tlog_egamut
+    transform: !<FileTransform> {src: red_look.cube, interpolation: tetrahedral}
+    inverse_transform: !<FileTransform> {src: red_look_inverse.cube, interpolation: tetrahedral}     
