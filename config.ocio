@@ -49,7 +49,7 @@ displays:
     - !<View> {name: None, colorspace: non-colour data}
 
 active_displays: [Rec1886 100 nits Video dim]
-active_views: [OpenDRT 1.0, ACES 1.0, ACES 2.0, JP2499, Red IPP2, Red IPP2 Look, Sony Venice High Contrast, Display Encoding, Log, None]
+active_views: [OpenDRT 1.0, ACES 1.0, ACES 2.0, JP2499, RED IPP2, RED IPP2 Look, Sony Venice High Contrast, Display Encoding, Log, None]
 
 ##################################### SCENE-REFERRED ##############################################
 
