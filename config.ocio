@@ -25,7 +25,8 @@ roles:
   mari_scalar8: non-colour data
   mari_float: lin_rec709
   reference: lin_xyz
-  srgb_linear: lin_rec709 
+  srgb_linear: lin_rec709
+  srgb_texture: srgb_encoding
   substance_3d_painter_standard_srgb: srgb_encoding
   substance_3d_painter_bitmap_import_8bit: srgb_encoding
   substance_3d_painter_bitmap_import_16bit: srgb_encoding
