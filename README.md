@@ -6,7 +6,7 @@ Based on my previous configs I have created a minimal OCIO config with different
 
 # About the config
 * Reference color space is XYZ which is the base of all colourimetry
-* All matrixes have been generated using [colour-science](https://www.colour-science.org/apps/) with CAT02
+* All matrixes have been generated using [colour-science](https://www.colour-science.org/apps/) with CAT02 and DCDM XYZ
 * "linear" stands for "linear_bt.709"
 * "cineonlog_rec709" can be used for a matte-painting workflow in Photoshop
 * "tlog_egamut" is the shaper space. It can be used for color timing and some log operations (such as sharpen)
